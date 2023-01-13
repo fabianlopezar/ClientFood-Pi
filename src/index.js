@@ -7,6 +7,12 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
 
+import axios from "axios";
+//---- Local ----
+//axios.defaults.baseURL = "http://localhost:3001";
+//---- deploy ----
+axios.defaults.baseURL = "https://apifood-pi-production.up.railway.app/";
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
