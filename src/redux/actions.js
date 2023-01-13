@@ -17,7 +17,7 @@ const RESET_DETAIL="RESET_DETAIL"
 //------------------------------------------------------------------
 export function getRecipes() {
   return async function (dispatch) {
-    let pedidoApi = await axios.get("http://localhost:3001/recipes");
+    let pedidoApi = await axios.get("/recipes");
     return dispatch({
       type: GET_RECIPES,
       payload: pedidoApi.data,
