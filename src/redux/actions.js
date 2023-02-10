@@ -17,7 +17,7 @@ const RESET_DETAIL="RESET_DETAIL"
 //------------------------------------------------------------------
 export function getRecipes() {
   return async function (dispatch) {
-    let pedidoApi = await axios.get("/recipes");
+    let pedidoApi = await axios.get("https://apifood-pi-production.up.railway.app/recipes");
     return dispatch({
       type: GET_RECIPES,
       payload: pedidoApi.data,
@@ -63,7 +63,7 @@ export function orderScore(payload) {
 export function getTitle(name) {
   return async function (dispatch) {
     try {
-      let pedidoApi = await axios.get(`/recipes?name=${name}`);
+      let pedidoApi = await axios.get(`https://apifood-pi-production.up.railway.app/recipes?name=${name}`);
       return dispatch({
         type: GET_BY_TITLE,
         payload: pedidoApi.data,
@@ -78,7 +78,7 @@ export function getRecipesId(id) {
   return async function (dispatch) {
     try {
       
-      let pedidoApi = await axios.get(`/recipes/${id}`);
+      let pedidoApi = await axios.get(`https://apifood-pi-production.up.railway.app//recipes/${id}`);
       console.log("soy la data del action: ", pedidoApi.data)
       return dispatch({
         type: GET_ID,
@@ -93,7 +93,7 @@ export function getRecipesId(id) {
 export function getTypeDiet() {
   return async function (dispatch) {
     try {
-      let pedidoApi = await axios.get("/diets");
+      let pedidoApi = await axios.get("https://apifood-pi-production.up.railway.app//diets");
       return dispatch({
         type: GET_BY_DIET,
         payload: pedidoApi.data,
@@ -106,7 +106,7 @@ export function getTypeDiet() {
 //------------------------------------------------------------------
 export function postRecipes(payload) {
   return async function () {
-    let pedidoApi = await axios.post("/recipes", payload);
+    let pedidoApi = await axios.post("https://apifood-pi-production.up.railway.app//recipes", payload);
     return pedidoApi;
   };
 }
