@@ -13,7 +13,7 @@ import s from "../styles/Home.module.css";
 
 export default function Home() {
   const allRecipes = useSelector((state) => state.recipes);
-  //currentPage = pagina actual
+  //      currentPage = pagina actual
   //     valor estado | actualizar estado
   const [currentPage, setCurrentPage] = useState(1);
   //itemsPerPage = catidad de items por pagina
