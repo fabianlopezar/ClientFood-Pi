@@ -78,7 +78,7 @@ export function getRecipesId(id) {
   return async function (dispatch) {
     try {
       
-      let pedidoApi = await axios.get(`https://apifood-pi-production.up.railway.app//recipes/${id}`);
+      let pedidoApi = await axios.get(`https://apifood-pi-production.up.railway.app/recipes/${id}`);
       console.log("soy la data del action: ", pedidoApi.data)
       return dispatch({
         type: GET_ID,
