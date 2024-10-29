@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,7 +11,7 @@ import Footer from "./Footer.jsx";
 import { resetDetail } from "../redux/actions.js";
 
 import s from "../styles/Details.module.css";
-import s2 from "../styles/Home.module.css"
+//import s2 from "../styles/Home.module.css"
 
 export default function Details(props) {
   const dispatch = useDispatch();
@@ -74,3 +75,4 @@ export default function Details(props) {
     </div>
   );
 }
+

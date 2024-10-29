@@ -14,24 +14,24 @@ const GET_ID = "GET_ID"
 
 const RESET_DETAIL="RESET_DETAIL"
 
-//------------------------------------------------------------------
+//----------------------------------------------------------------------
 export function getRecipes() {
   return async function (dispatch) {
-    let pedidoApi = await axios.get("https://apifood-pi-production.up.railway.app/recipes");
+    let pedidoApi = await axios.get("http://localhost:3001/recipes");
     return dispatch({
       type: GET_RECIPES,
       payload: pedidoApi.data,
     });
   };
 }
-//-------------- FUNCION FILTRAR POR DIETA----------------------------------------------------
+//-------------- FUNCION FILTRAR POR DIETA ----------------------
 export function filterDiet(payload) {
   return {
     type: FILTER_DIET,
     payload,
   };
 }
-//--------------- FUNCION FILTRADO POR CREACION---------------------------------------------------
+//--------------- FUNCION FILTRADO POR CREACION---------------------
 export function filterCreated(payload) {
   return {
     type: FILTER_CREATED,
@@ -39,7 +39,7 @@ export function filterCreated(payload) {
   };
 }
 
-//---------------- FUNCION ORDENAR POR TITULO(ALFABETICAMENTE) --------------------------------------------------
+//--------------- FUNCION ORDENAR POR TITULO(ALFABETICAMENTE) -----
 export function orderTitle(payload) {
   return {
     type: ORDER_BY_TITLE,
@@ -59,11 +59,11 @@ export function orderScore(payload) {
     payload,
   };
 }
-//------------- FUNCION PARA EL SEARCH BAR-----------------------------------------------------
+//------------- FUNCION PARA EL SEARCH BAR--------------------------
 export function getTitle(name) {
   return async function (dispatch) {
     try {
-      let pedidoApi = await axios.get(`https://apifood-pi-production.up.railway.app/recipes?name=${name}`);
+      let pedidoApi = await axios.get(`http://localhost:3001/recipes?name=${name}`);
       return dispatch({
         type: GET_BY_TITLE,
         payload: pedidoApi.data,
@@ -78,7 +78,7 @@ export function getRecipesId(id) {
   return async function (dispatch) {
     try {
       
-      let pedidoApi = await axios.get(`https://apifood-pi-production.up.railway.app/recipes/${id}`);
+      let pedidoApi = await axios.get(`http://localhost:3001/recipes/${id}`);
       console.log("soy la data del action: ", pedidoApi.data)
       return dispatch({
         type: GET_ID,
@@ -93,7 +93,7 @@ export function getRecipesId(id) {
 export function getTypeDiet() {
   return async function (dispatch) {
     try {
-      let pedidoApi = await axios.get("https://apifood-pi-production.up.railway.app//diets");
+      let pedidoApi = await axios.get("http://localhost:3001/diets");
       return dispatch({
         type: GET_BY_DIET,
         payload: pedidoApi.data,
@@ -106,7 +106,7 @@ export function getTypeDiet() {
 //------------------------------------------------------------------
 export function postRecipes(payload) {
   return async function () {
-    let pedidoApi = await axios.post("https://apifood-pi-production.up.railway.app//recipes", payload);
+    let pedidoApi = await axios.post("http://localhost:3001/recipe", payload);
     return pedidoApi;
   };
 }
