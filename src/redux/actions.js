@@ -17,7 +17,7 @@ const RESET_DETAIL="RESET_DETAIL"
 //----------------------------------------------------------------------
 export function getRecipes() {
   return async function (dispatch) {
-    let pedidoApi = await axios.get("http://localhost:3001/recipes");
+    let pedidoApi = await axios.get("/recipes");
     return dispatch({
       type: GET_RECIPES,
       payload: pedidoApi.data,
@@ -63,7 +63,7 @@ export function orderScore(payload) {
 export function getTitle(name) {
   return async function (dispatch) {
     try {
-      let pedidoApi = await axios.get(`http://localhost:3001/recipes?name=${name}`);
+      let pedidoApi = await axios.get(`/recipes?name=${name}`);
       return dispatch({
         type: GET_BY_TITLE,
         payload: pedidoApi.data,
@@ -78,7 +78,7 @@ export function getRecipesId(id) {
   return async function (dispatch) {
     try {
       
-      let pedidoApi = await axios.get(`http://localhost:3001/recipes/${id}`);
+      let pedidoApi = await axios.get(`/recipes/${id}`);
       console.log("soy la data del action: ", pedidoApi.data)
       return dispatch({
         type: GET_ID,
@@ -93,7 +93,7 @@ export function getRecipesId(id) {
 export function getTypeDiet() {
   return async function (dispatch) {
     try {
-      let pedidoApi = await axios.get("http://localhost:3001/diets");
+      let pedidoApi = await axios.get("/diets");
       return dispatch({
         type: GET_BY_DIET,
         payload: pedidoApi.data,
@@ -106,7 +106,7 @@ export function getTypeDiet() {
 //------------------------------------------------------------------
 export function postRecipes(payload) {
   return async function () {
-    let pedidoApi = await axios.post("http://localhost:3001/recipe", payload);
+    let pedidoApi = await axios.post("/recipe", payload);
     return pedidoApi;
   };
 }
